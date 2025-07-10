@@ -1,159 +1,26 @@
-Snay.Cafe - Premium Coffee & Services E-commerce Platform
-Snay.Cafe is a modern, full-stack e-commerce application designed for a premium coffee supplier. It provides a sleek frontend for customers to browse products, manage their cart, and request services, alongside a robust backend administration panel for managing products, categories, orders, users, and various application settings.
-
-✨ Features
-Customer Frontend
-Product Catalog: Browse a wide range of coffee products with detailed descriptions, pricing, and images.
-
-Categories: Filter products by categories (e.g., "Coffee Beans", "Syrups").
-
-Product Details: View individual product pages with more information.
-
-Shopping Cart: Add, update, and remove items from the cart.
-
-User Authentication: Secure user registration, login, and logout.
-
-User Profile: View and edit user details, including order history.
-
-Service Requests: Submit requests for coffee-related services.
-
-Responsive Design: Optimized for various screen sizes (mobile, tablet, desktop).
-
-Admin Backend
-Dashboard: Overview of key e-commerce metrics.
-
-Product Management: Add, edit, and delete coffee products with details like name, description, price, stock, and image.
-
-Category Management: Manage product categories.
-
-Order Management: View and manage customer orders.
-
-User Management: Administer user accounts.
-
-Service Request Management: Handle incoming service requests.
-
-Settings Management: Configure various application settings.
-
-Secure Access: Admin panel accessible only to authenticated and authorized users.
-
-🚀 Technologies Used
-Backend:
-
-PHP 8.x
-
-Laravel Framework 10.x
-
-MySQL / PostgreSQL (Database)
-
-Frontend:
-
-HTML5
-
-Tailwind CSS (for styling)
-
-Alpine.js (for simple interactivity, if applicable)
-
-JavaScript (ES6+)
-
-SweetAlert2 (for custom alerts and toasts)
-
-Development Tools:
-
-Composer (PHP dependency manager)
-
-NPM / Yarn (JavaScript package manager)
-
-Git (Version Control)
-
-🛠️ Prerequisites
-Before you begin, ensure you have the following installed on your system:
-
-PHP (8.1 or higher recommended)
-
-Composer
-
-Node.js & npm (or Yarn)
-
-A web server (Apache, Nginx, or Laravel Valet/Herd)
-
-A database (MySQL is commonly used with Laravel)
-
-Git
-
 ⚙️ Installation Guide
-Follow these steps to get Snay.Cafe up and running on your local machine:
+1. Clone the Repository
+Open your terminal or command prompt and run the following commands:
 
-Clone the Repository:
-
-git clone <repository_url>
+git clone https://github.com/your-username/snay.cafe.git
 cd snay.cafe
 
-Install PHP Dependencies:
+2. Set up Environment File and Configure Database
+After cloning, you need to set up your environment variables, including your database connection details.
 
-composer install
-
-Install JavaScript Dependencies:
-
-npm install # or yarn install
-
-Set up Environment File:
-Copy the example environment file and generate an application key:
-
+# Copy the example environment file
 cp .env.example .env
+
+# Generate an application key (essential for Laravel security)
 php artisan key:generate
 
-Configure Database:
-Open your newly created .env file and update your database connection details:
+Now, open the newly created .env file in your project's root directory using a text editor. Locate the database configuration section and update it with your specific database credentials:
 
-DB_CONNECTION=mysql
+DB_CONNECTION=mysql # Or pgsql for PostgreSQL, sqlite for SQLite
 DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=snay_cafe_db # Or your preferred database name
-DB_USERNAME=root         # Your database username
-DB_PASSWORD=             # Your database password
+DB_PORT=3306        # Or 5432 for PostgreSQL, etc.
+DB_DATABASE=snay_cafe_db # Replace with your database name
+DB_USERNAME=root         # Replace with your database username
+DB_PASSWORD=             # Replace with your database password (leave empty if no password)
 
-Also, ensure your APP_URL is correct for local development (e.g., APP_URL=http://127.0.0.1:8000 or http://localhost:8000).
-
-Run Database Migrations & Seeders:
-This will create the necessary tables and populate them with some initial data (including an admin user).
-
-php artisan migrate --seed
-
-Create Storage Link:
-This command creates a symbolic link from public/storage to storage/app/public, which is essential for serving uploaded files like product images.
-
-php artisan storage:link
-
-Compile Frontend Assets:
-
-npm run dev # For development with hot reloading
-# Or for a production build:
-# npm run build
-
-Start the Development Server:
-
-php artisan serve
-
-Your application will typically be available at http://127.0.0.1:8000.
-
-🚀 Usage
-Frontend (Customer View)
-Navigate to http://127.0.0.1:8000 (or your local domain) in your web browser. You can browse products, add them to your cart, and register an account.
-
-Admin Panel
-To access the admin panel, navigate to http://127.0.0.1:8000/admin/dashboard.
-
-Example Admin Credentials (from seeding):
-
-Email: admin@example.com
-
-Password: password (or as defined in your database seeder)
-
-🤝 Contributing
-Contributions are welcome! If you find a bug or have a feature request, please open an issue. If you'd like to contribute code, please fork the repository and submit a pull request.
-
-📄 License
-This project is open-source and licensed under the MIT License.
-
-📞 Contact
-For any inquiries or support, please open an issue on the GitHub repository.
+Important: Ensure your database server (e.g., MySQL, PostgreSQL) is running and that you have created the database specified in DB_DATABASE.
